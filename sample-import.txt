@@ -1,0 +1,8 @@
+Sprint Planning Notes
+
+Goals for this week:
+- Polish the document editor
+- Demonstrate sharing with Sam
+- Validate refresh persistence
+
+Next steps: record a short walkthrough.
