@@ -17,7 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parent
-DB_PATH = Path(â€œ/tmp/docspace.sqlite3â€) if os.getenv(â€œVERCELâ€) else ROOT / â€œdocspace.sqlite3â€
+DB_PATH = Path(“/tmp/docspace.sqlite3”) if os.getenv(“VERCEL”) else ROOT / “docspace.sqlite3”
 MAX_CONTENT = 200_000
 MAX_IMPORT = 1024 * 1024
 USERS = (
