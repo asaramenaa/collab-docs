@@ -1,4 +1,4 @@
-"""DocSpace Lite: small, reviewable full-stack document workspace."""
+﻿"""DocSpace Lite: small, reviewable full-stack document workspace."""
 from __future__ import annotations
 
 import html
@@ -17,7 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parent
-DB_PATH = Path(os.environ.get("DOCSPACE_DB", str(ROOT / "docspace.sqlite3")))
+DB_PATH = Path(â€œ/tmp/docspace.sqlite3â€) if os.getenv(â€œVERCELâ€) else ROOT / â€œdocspace.sqlite3â€
 MAX_CONTENT = 200_000
 MAX_IMPORT = 1024 * 1024
 USERS = (
@@ -88,7 +88,7 @@ def user_id(x_demo_user: str | None) -> str:
 def validate_title(title: str) -> str:
     title = title.strip()
     if not 1 <= len(title) <= 100:
-        raise HTTPException(422, "Title must be 1–100 characters")
+        raise HTTPException(422, "Title must be 1â€“100 characters")
     return title
 
 
@@ -267,3 +267,4 @@ def application_page(path: str):
     if path and path != "" and not re.fullmatch(r"documents/[a-f0-9-]{36}", path):
         raise HTTPException(404, "Page not found")
     return FileResponse(ROOT / "static" / "index.html")
+
